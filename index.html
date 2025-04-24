@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digiframe.id</title>
+    <style>
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    background-color: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+form {
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #00fffb;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    background-color: #000000;
+}
+  
+        /* Style Umum */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #231e1e;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Style Form Login */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #00fffb;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+            background-color: #000000;
+        }
+
+        form label, 
+        form input, 
+        form button {
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        form label {
+            color: white;
+        }
+
+        form input {
+            padding: 8px;
+            border: 3px solid #3001ff;
+            border-radius: 5px;
+        }
+
+        form button {
+            padding: 10px;
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Konten setelah login */
+        #mainContent {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #mediaSection {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>WELCOME TO DIGIFRAME.ID</h1>
+
+    <!-- Form Login -->
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">LOGIN</button>
+    </form>
+
+    <!-- Konten utama setelah login -->
+    <div id="mainContent" style="display: none;">
+        <h2>Selamat Datang di Halaman Kami!!</h2>
+        <p>Anda berhasil login. WEB INI MASIH DALAM PERBAIKAN.</p>
+
+        <div id="mediaSection">
+            <h3>PILIHLAH FOTO ATAU VIDEO</h3>
+            <p>Silakan pilih kategori gambar yang ingin Anda lihat:</p>
+
+            <label for="category">Pilih Kategori Gambar:</label>
+            <select id="category" onchange="showImages()">
+                <option value="all">Semua</option>
+                <option value="sunset">Sunset</option>
+                <option value="makanan">Makanan</option>
+                <option value="pemandangan">Pemandangan</option>
+            </select>
+        </div>
+    </div>
+
+    <script>
+        // Handle login
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'admin' && password === '1') {
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+            } else {
+                alert('Username atau password salah. Silakan coba lagi.');
+            }
+        });
+
+        // Placeholder function untuk dropdown kategori (jika ingin ditambahkan nantinya)
+        function showImages() {
+            const category = document.getElementById("category").value;
+            console.log("Kategori dipilih:", category);
+            // Tambahkan logika untuk menampilkan gambar berdasarkan kategori
+        }
+    </script>
+</body>
+</html>
